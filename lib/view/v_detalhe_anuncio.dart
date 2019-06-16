@@ -10,19 +10,28 @@ class DetalheAnuncio extends StatefulWidget {
 class _DetalheAnuncioState extends State<DetalheAnuncio> {
   int _index = 0;
   void _selectScreen(int index) {
-  setState(() {
-    _index = index;
-  });
+    setState(() {
+      _index = index;
+    });
   }
+
   @override
   Widget build(BuildContext context) {
     final Anuncio anuncio = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text(anuncio.finalidade + " de " + anuncio.tipo),
-        centerTitle: true,
+        //title: Text(anuncio.finalidade + " de " + anuncio.tipo),
+        title: Text("Detalhe do Anúncio"),
+        //centerTitle: true,
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.share),onPressed: (){},)
+          IconButton(
+            icon: Icon(Icons.favorite_border),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(Icons.share),
+            onPressed: () {},
+          ),
         ],
       ),
       drawer: Drawer(),
@@ -30,27 +39,36 @@ class _DetalheAnuncioState extends State<DetalheAnuncio> {
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.photo_camera,),
+            icon: Icon(
+              Icons.photo_camera,
+            ),
             title: Text("Fotos"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info_outline,),
+            icon: Icon(
+              Icons.info_outline,
+            ),
             title: Text("Dados"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.location_on,),
-            title: Text("Endereço")
-          ),
+              icon: Icon(
+                Icons.location_on,
+              ),
+              title: Text("Endereço")),
           BottomNavigationBarItem(
-            icon: Icon(Icons.contacts,),
-            title: Text("Contatos")
-          ),
+              icon: Icon(
+                Icons.contacts,
+              ),
+              title: Text("Contatos")),
         ],
         currentIndex: _index,
         selectedItemColor: Colors.amber,
         onTap: _selectScreen,
       ),
-      body: DetalheBar(anuncio: anuncio,index: _index,),
+      body: DetalheBar(
+        anuncio: anuncio,
+        index: _index,
+      ),
     );
   }
 }

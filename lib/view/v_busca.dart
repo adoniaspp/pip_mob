@@ -73,8 +73,9 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                                   Stack(
                                     alignment: Alignment.topCenter,
                                     children: <Widget>[
-                                      Image.network(
-                                          "https://opcionis.cl/blog/wp-content/uploads/2015/10/casa.jpg"),
+                                      FadeInImage.assetNetwork(
+                                          image: "https://opcionis.cl/blog/wp-content/uploads/2015/10/casa.jpg",
+                                          placeholder: 'assets/casa.png'),
                                       Container(
                                         padding: EdgeInsets.all(10),
                                         decoration: BoxDecoration(

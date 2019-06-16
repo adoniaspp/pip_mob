@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pip_mob/model/Anuncio.dart';
 import 'package:flutter_money_formatter/flutter_money_formatter.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:photo_view/photo_view.dart';
 
 class DetalheBar extends StatelessWidget {
   final Anuncio anuncio;
@@ -12,47 +13,68 @@ class DetalheBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> imagens = new List<Widget>();
-    anuncio.imagem.forEach((imagem){
-      imagens.add(Image.network("http://pipbeta.com.br/fotos/imoveis/" +
-      imagem.diretorio + "/" + imagem.nome)
-      );  
+    anuncio.imagem.forEach((imagem) {
+      imagens.add(GestureDetector(
+          onTap: () {
+            print('oi');
+          },
+          child: Container(
+              child: FittedBox(
+            fit: BoxFit.cover,
+            child: FadeInImage.assetNetwork(
+              image: "http://pipbeta.com.br/fotos/imoveis/" +
+                  imagem.diretorio +
+                  "/" +
+                  imagem.nome,
+              placeholder: 'assets/casa.png',
+            ),
+          ))));
     });
-
     List<Widget> _widgets = <Widget>[
-      Column(
+      ListView(
         children: <Widget>[
-          CarouselSlider(
-             items: imagens,
-             enlargeCenterPage: true,
-            aspectRatio: 2.0,
-          ),         
-          /*Image.network("http://pipbeta.com.br/fotos/imoveis/" +
-              anuncio.imagem[0].diretorio +
-              "/" +
-              anuncio.imagem[0].nome),*/
           SizedBox(
-            height: 50,
+            height: 10,
           ),
-          Text(anuncio.tituloanuncio),
-          Text(anuncio.descricaoanuncio),
+          CarouselSlider(
+            viewportFraction: 1.0,
+            items: imagens,
+            enlargeCenterPage: true,
+            //aspectRatio: 1.8,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          ListTile(
+            title: Text(
+              anuncio.finalidade,
+              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+            ),
+            subtitle: Text(
+              anuncio.tipo,
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            trailing: Text(
+              moneyFormat(anuncio.valormin),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Divider(color: Colors.black,),
+          Container(
+            margin: EdgeInsets.only(left: 17, right: 17, bottom: 17, top: 20),
+            child: Text(
+              anuncio.tituloanuncio,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 17, right: 17),
+            child: Text(anuncio.descricaoanuncio)),
         ],
       ),
       ListView(
         children: <Widget>[
-          ListTile(
-            leading: Icon(
-              Icons.attach_money,
-              size: 35,
-            ),
-            title: Text(
-              "Valor",
-              style: TextStyle(fontSize: 20),
-            ),
-            trailing: Text(
-              moneyFormat(anuncio.valormin),
-              style: TextStyle(fontSize: 20),
-            ),
-          ),
+          
           ListTile(
             leading: Icon(
               Icons.hotel,

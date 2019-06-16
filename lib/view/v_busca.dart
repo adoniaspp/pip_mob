@@ -182,7 +182,7 @@ class _VisaoBuscaState extends State<VisaoBusca> {
             thousandSeparator: '.',
             decimalSeparator: ',',
             symbolAndNumberSeparator: ' ',
-            fractionDigits: 3,
+            fractionDigits: 2,
             compactFormatType: CompactFormatType.short));
     return fmf.output.symbolOnLeft;
   }

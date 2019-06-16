@@ -19,7 +19,7 @@ class _DetalheAnuncioState extends State<DetalheAnuncio> {
     final Anuncio anuncio = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Detalhes"),
+        title: Text(anuncio.finalidade + " de " + anuncio.tipo),
         centerTitle: true,
         actions: <Widget>[
           IconButton(icon: Icon(Icons.share),onPressed: (){},)

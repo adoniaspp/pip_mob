@@ -41,23 +41,27 @@ class _DetalheAnuncioState extends State<DetalheAnuncio> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.photo_camera,
+              size: 30,
             ),
             title: Text("Fotos"),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.info_outline,
+              size: 30,
             ),
             title: Text("Dados"),
           ),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.location_on,
+                size: 30,
               ),
               title: Text("Endereço")),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.contacts,
+                size: 30,
               ),
               title: Text("Contatos")),
         ],

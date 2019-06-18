@@ -236,7 +236,7 @@ class DetalheBar extends StatelessWidget {
             height: 300,
             width: 300,
             child: GoogleMap(
-              mapType: MapType.hybrid,
+              mapType: MapType.normal,
               initialCameraPosition: _kGooglePlex,
               onMapCreated: (GoogleMapController controller) {
                 _controller.complete(controller);

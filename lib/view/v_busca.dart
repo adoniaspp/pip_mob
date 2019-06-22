@@ -84,7 +84,7 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                                         child: Text(
                                           moneyFormat(anuncio.valormin),
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: Colors.black,
                                               fontSize: 17),
                                         ),
                                       )

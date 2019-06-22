@@ -9,8 +9,8 @@ class DetalheBar extends StatelessWidget {
   final Anuncio anuncio;
   final int index;
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
+    target: LatLng(-1.449341, -48.487602),
+    zoom: 16.75,
   );
   Completer<GoogleMapController> _controller = Completer();
 
@@ -41,9 +41,6 @@ class DetalheBar extends StatelessWidget {
     List<Widget> _widgets = <Widget>[
       ListView(
         children: <Widget>[
-          SizedBox(
-            height: 10,
-          ),
           CarouselSlider(
             viewportFraction: 1.0,
             items: imagens,
@@ -174,6 +171,7 @@ class DetalheBar extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
           ),
+          
         ],
       ),
       ListView(
@@ -236,8 +234,25 @@ class DetalheBar extends StatelessWidget {
             height: 300,
             width: 300,
             child: GoogleMap(
+              zoomGesturesEnabled: true,
               mapType: MapType.normal,
-              initialCameraPosition: _kGooglePlex,
+              initialCameraPosition: CameraPosition(
+                target: LatLng(double.parse(anuncio.latitude),
+                    double.parse(anuncio.longitude)),
+                zoom: 16.75,
+              ),
+              markers: <Marker>{
+                Marker(
+                  markerId: MarkerId(anuncio.latitude.toString()),
+                  position: LatLng(double.parse(anuncio.latitude),
+                      double.parse(anuncio.longitude)),
+                  infoWindow: InfoWindow(
+                    title: anuncio.finalidade + " de " + anuncio.tipo,
+                    snippet: moneyFormat(anuncio.valormin),
+                  ),
+                  icon: BitmapDescriptor.defaultMarker,
+                )
+              },
               onMapCreated: (GoogleMapController controller) {
                 _controller.complete(controller);
               },

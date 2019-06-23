@@ -3,7 +3,7 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:pip_mob/bloc/anuncio_bloc.dart';
 import 'package:pip_mob/model/busca_anuncio.dart';
 import 'package:pip_mob/model/Anuncio.dart';
-import 'package:flutter_money_formatter/flutter_money_formatter.dart';
+import 'package:pip_mob/util/functions.dart';
 
 class VisaoBusca extends StatefulWidget {
   @override
@@ -22,7 +22,16 @@ class _VisaoBuscaState extends State<VisaoBusca> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              Navigator.pushNamed(context, '/modalBusca');
+            },
+          ),
+        ],
+      ),
       drawer: Drawer(),
       body: Container(
           margin: EdgeInsets.only(left: 15, right: 15),
@@ -74,7 +83,8 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                                     alignment: Alignment.topCenter,
                                     children: <Widget>[
                                       FadeInImage.assetNetwork(
-                                          image: "https://opcionis.cl/blog/wp-content/uploads/2015/10/casa.jpg",
+                                          image:
+                                              "https://opcionis.cl/blog/wp-content/uploads/2015/10/casa.jpg",
                                           placeholder: 'assets/casa.png'),
                                       Container(
                                         padding: EdgeInsets.all(10),
@@ -82,7 +92,8 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                                           color: Colors.black26,
                                         ),
                                         child: Text(
-                                          moneyFormat(anuncio.valormin),
+                                          Functions.moneyFormat(
+                                              anuncio.valormin),
                                           style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 17),
@@ -173,18 +184,5 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                 }
               })),
     );
-  }
-
-  String moneyFormat(String money) {
-    FlutterMoneyFormatter fmf = new FlutterMoneyFormatter(
-        amount: double.parse(money),
-        settings: MoneyFormatterSettings(
-            symbol: 'R\$',
-            thousandSeparator: '.',
-            decimalSeparator: ',',
-            symbolAndNumberSeparator: ' ',
-            fractionDigits: 2,
-            compactFormatType: CompactFormatType.short));
-    return fmf.output.symbolOnLeft;
   }
 }

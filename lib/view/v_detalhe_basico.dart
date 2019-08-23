@@ -22,13 +22,19 @@ class DetalheBasico extends StatelessWidget {
           child: Container(
               child: FittedBox(
             fit: BoxFit.cover,
-            child: FadeInImage.assetNetwork(
+            child: 
+            FadeInImage.assetNetwork(
+                                          image:
+                                              "https://opcionis.cl/blog/wp-content/uploads/2015/10/casa.jpg",
+                                          placeholder: 'assets/casa.png'),
+            
+            /*FadeInImage.assetNetwork(
               image: "http://pipbeta.com.br/fotos/imoveis/" +
                   imagem.diretorio +
                   "/" +
                   imagem.nome,
               placeholder: 'assets/casa.png',
-            ),
+            ),*/
           ))));
     });
     

@@ -6,7 +6,7 @@ class BuscaAnuncioService
 {
 
 static Future<BuscaAnuncio> buscaAnuncio() async{
-  var url = "http://192.168.1.107:80/index.php";
+  var url = "http://192.168.1.101:80/index.php";
   FormData formData = new FormData.from({
     'hdnEntidade' : 'Anuncio',
     'hdnAcao' : 'buscarAnuncio',
@@ -24,10 +24,11 @@ static Future<BuscaAnuncio> buscaAnuncio() async{
 }
 
 static Future<BuscaAnuncio> detalheAnuncio(String idAnuncio) async{
-    var url = "http://192.168.1.107:80/" + idAnuncio;
+    var url = "http://192.168.1.101:80/" + idAnuncio;
     Dio dio = new Dio();
     var response = await dio.get(url);
     return BuscaAnuncio.fromJson(jsonDecode(response.data));
 }
+
 
 }

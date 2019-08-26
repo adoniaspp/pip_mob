@@ -49,7 +49,7 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                         return GestureDetector(
                           onTap: () {
                             Navigator.pushNamed(context, '/detalheAnuncio',
-                                arguments: anuncio);
+                                arguments: index);
                           },
                           child: Card(
                               margin: EdgeInsets.only(bottom: 20),

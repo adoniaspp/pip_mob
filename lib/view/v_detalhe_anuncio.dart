@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pip_mob/model/Anuncio.dart';
 import 'v_detalhe_bar.dart';
+/*import 'package:pip_mob/view/v_detalhe_basico.dart';
+import 'package:pip_mob/view/v_detalhe_dados.dart';
+import 'package:pip_mob/view/v_detalhe_endereco.dart';
+import 'package:pip_mob/view/v_detalhe_contato.dart';*/
+
 
 class DetalheAnuncio extends StatefulWidget {
   @override
@@ -9,6 +13,8 @@ class DetalheAnuncio extends StatefulWidget {
 
 class _DetalheAnuncioState extends State<DetalheAnuncio> {
   int _index = 0;
+  TabController _tabController;
+
   void _selectScreen(int index) {
     setState(() {
       _index = index;
@@ -16,8 +22,25 @@ class _DetalheAnuncioState extends State<DetalheAnuncio> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final Anuncio anuncio = ModalRoute.of(context).settings.arguments;
+    //final Anuncio anuncio = ModalRoute.of(context).settings.arguments;
+    final int indiceLista = ModalRoute.of(context).settings.arguments;
+    /*List<Widget> _widgets = <Widget>[
+      DetalheBasico(anuncio: anuncio,),
+      DetalheDados(anuncio: anuncio,),
+      DetalheEndereco(anuncio: anuncio),
+      DetalheContato(anuncio: anuncio,),
+    ];*/
     return Scaffold(
       appBar: AppBar(
         //title: Text(anuncio.finalidade + " de " + anuncio.tipo),
@@ -38,13 +61,13 @@ class _DetalheAnuncioState extends State<DetalheAnuncio> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+          /*BottomNavigationBarItem(
             icon: Icon(
               Icons.photo_camera,
               size: 30,
             ),
             title: Text("Fotos"),
-          ),
+          ),*/
           BottomNavigationBarItem(
             icon: Icon(
               Icons.info_outline,
@@ -70,9 +93,13 @@ class _DetalheAnuncioState extends State<DetalheAnuncio> {
         onTap: _selectScreen,
       ),
       body: DetalheBar(
-        anuncio: anuncio,
         index: _index,
+        indiceLista: indiceLista,
       ),
+      /*body: TabBarView(
+        children: _widgets,
+        controller: _tabController,
+      ),*/
     );
   }
 }

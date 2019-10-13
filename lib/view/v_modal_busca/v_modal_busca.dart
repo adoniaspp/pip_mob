@@ -31,7 +31,7 @@ class _ModalBuscaState extends State<ModalBusca> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Busca"),
+        title: Text("Procurar Anúncio"),
         centerTitle: true,
       ),
       body: Container(

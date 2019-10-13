@@ -61,13 +61,13 @@ class _DetalheAnuncioState extends State<DetalheAnuncio> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
-          /*BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(
               Icons.photo_camera,
               size: 30,
             ),
             title: Text("Fotos"),
-          ),*/
+          ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.info_outline,

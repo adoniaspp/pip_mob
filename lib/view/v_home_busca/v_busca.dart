@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
-import 'package:pip_mob/bloc/anuncio_bloc.dart';
+import 'package:pip_mob/bloc/busca_anuncio_bloc.dart';
 import 'package:pip_mob/model/busca_anuncio.dart';
 import 'package:pip_mob/model/Anuncio.dart';
 import 'package:pip_mob/util/functions.dart';
@@ -22,14 +22,31 @@ class _VisaoBuscaState extends State<VisaoBusca> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.pushNamed(context, '/modalBusca');
+        },
+        label: Text("Procurar"),
+        icon: Icon(Icons.search),
+        backgroundColor: Colors.blue,
+      ),
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        child: Container(
+          height: 50.0,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
+        title: Text("PIP-Imóveis"),
+        centerTitle: true,
         actions: <Widget>[
-          IconButton(
+          /*IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
               Navigator.pushNamed(context, '/modalBusca');
             },
-          ),
+          ),*/
         ],
       ),
       drawer: Drawer(),
@@ -49,7 +66,10 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                         return GestureDetector(
                           onTap: () {
                             Navigator.pushNamed(context, '/detalheAnuncio',
-                                arguments: index);
+                                arguments: <String, String>{
+                                  'idAnuncio': anuncio.idanuncio,
+                                  'tipoImovel': anuncio.tipo
+                                });
                           },
                           child: Card(
                               margin: EdgeInsets.only(bottom: 20),
@@ -125,7 +145,7 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                                             SizedBox(
                                               width: 30,
                                             ),
-                                            Column(
+                                            anuncio.quarto!=null ? Column(
                                               children: <Widget>[
                                                 Icon(
                                                   Icons.hotel,
@@ -135,7 +155,7 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                                                     ? anuncio.quarto
                                                     : '-')
                                               ],
-                                            ),
+                                            ): Column(),
                                             SizedBox(
                                               width: 30,
                                             ),
@@ -146,7 +166,7 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                                                   size: 35,
                                                 ),
                                                 Text((anuncio.banheiro != null)
-                                                    ? anuncio.quarto
+                                                    ? anuncio.banheiro
                                                     : '-')
                                               ],
                                             ),
@@ -158,7 +178,7 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                                                 Icon(Icons.directions_car,
                                                     size: 35),
                                                 Text((anuncio.garagem != null)
-                                                    ? anuncio.quarto
+                                                    ? anuncio.garagem
                                                     : '-')
                                               ],
                                             ),

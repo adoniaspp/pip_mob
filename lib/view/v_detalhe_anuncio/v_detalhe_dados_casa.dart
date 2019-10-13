@@ -1,14 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:pip_mob/bloc/anuncio_bloc.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:flutter/material.dart';
+import 'package:pip_mob/bloc/busca_anuncio_bloc.dart';
 import 'package:pip_mob/model/Anuncio.dart';
 import 'package:pip_mob/model/busca_anuncio.dart';
 
-class DetalheDados extends StatelessWidget {
+class DadosCasa extends StatelessWidget {
+
   final int index;
   AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
 
-  DetalheDados({Key key, this.index}) : super(key: key);
+  DadosCasa({Key key, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

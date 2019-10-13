@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 import 'package:pip_mob/util/functions.dart';
-import 'package:pip_mob/bloc/anuncio_bloc.dart';
+import 'package:pip_mob/bloc/busca_anuncio_bloc.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:pip_mob/model/busca_anuncio.dart';
 import 'package:pip_mob/model/Anuncio.dart';

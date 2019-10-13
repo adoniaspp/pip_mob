@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
-import 'package:pip_mob/bloc/anuncio_bloc.dart';
-import 'package:pip_mob/view/v_busca.dart';
-import 'package:pip_mob/view/v_detalhe_anuncio.dart';
-import 'package:pip_mob/view/v_detalhe_mensagem.dart';
-import 'package:pip_mob/view/v_modal_busca.dart';
-
+import 'package:pip_mob/bloc/busca_anuncio_bloc.dart';
+import 'package:pip_mob/view/v_home_busca/v_busca.dart';
+import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_anuncio.dart';
+import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_mensagem.dart';
+import 'package:pip_mob/view/v_modal_busca/v_modal_busca.dart';
 
 main() => runApp(MyApp());
 

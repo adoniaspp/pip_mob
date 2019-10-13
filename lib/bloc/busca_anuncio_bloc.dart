@@ -13,13 +13,24 @@ class AnuncioBloc extends BlocBase{
 
   Sink<BuscaAnuncio> get inBuscaAnuncio => _buscaAnuncioController.sink;
 
+  var _detalheAnuncioController = BehaviorSubject<BuscaAnuncio>();
+
+  Stream<BuscaAnuncio> get outDetalheAnuncio => _detalheAnuncioController.stream;
+
+  Sink<BuscaAnuncio> get inDetalheAnuncio => _detalheAnuncioController.sink;
+
   buscaAnuncio() async{
       inBuscaAnuncio.add(await BuscaAnuncioService.buscaAnuncio());
+  }
+
+  detalharAnuncio(final parametros) async{
+      inDetalheAnuncio.add(await BuscaAnuncioService.detalheAnuncio());
   }
 
   @override
   void dispose() {
     _buscaAnuncioController.close();
+    _detalheAnuncioController.close();
     super.dispose();
   }
 

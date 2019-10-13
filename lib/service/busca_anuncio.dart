@@ -6,12 +6,13 @@ class BuscaAnuncioService
 {
 
 static Future<BuscaAnuncio> buscaAnuncio() async{
-  var url = "http://192.168.1.101:80/index.php";
+  var url = "https://www.piponline.com.br";
   FormData formData = new FormData.from({
     'hdnEntidade' : 'Anuncio',
     'hdnAcao' : 'buscarAnuncio',
     'tipoImovel' : 'todos',
-    'garagem': 'false'
+    'garagem': 'false',
+    'mobileDevice': 'true'
   });
   Dio dio = new Dio();
   var response = await dio.post(url, data: formData);
@@ -23,8 +24,8 @@ static Future<BuscaAnuncio> buscaAnuncio() async{
   });*/
 }
 
-static Future<BuscaAnuncio> detalheAnuncio(String idAnuncio) async{
-    var url = "http://192.168.1.101:80/" + idAnuncio;
+static Future<BuscaAnuncio> detalheAnuncio() async{
+    var url = "http://192.168.1.107:80/";
     Dio dio = new Dio();
     var response = await dio.get(url);
     return BuscaAnuncio.fromJson(jsonDecode(response.data));

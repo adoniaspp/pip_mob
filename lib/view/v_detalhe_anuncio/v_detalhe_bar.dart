@@ -7,18 +7,17 @@ import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_contato.dart';
 
 class DetalheBar extends StatelessWidget {
   final int index;
-  final int indiceLista;
   
-  DetalheBar({Key key, this.index, this.indiceLista}) : super(key: key);
+  DetalheBar({Key key, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
   
     List<Widget> _widgets = <Widget>[
-      DetalheBasico(index: indiceLista,),
-      DetalheDados(index: indiceLista,),
-      DetalheEndereco(index: indiceLista,),
-      DetalheContato(index: indiceLista,),
+      DetalheBasico(),
+      DetalheDados(),
+      DetalheEndereco(),
+      DetalheContato(),
     ];
     return _widgets.elementAt(index);
   }

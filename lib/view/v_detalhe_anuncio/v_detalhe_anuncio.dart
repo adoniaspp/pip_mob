@@ -1,4 +1,6 @@
+import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
+import 'package:pip_mob/bloc/busca_anuncio_bloc.dart';
 import 'v_detalhe_bar.dart';
 /*import 'package:pip_mob/view/v_detalhe_basico.dart';
 import 'package:pip_mob/view/v_detalhe_dados.dart';
@@ -14,6 +16,7 @@ class DetalheAnuncio extends StatefulWidget {
 class _DetalheAnuncioState extends State<DetalheAnuncio> {
   int _index = 0;
   TabController _tabController;
+  AnuncioBloc bloc;
 
   void _selectScreen(int index) {
     setState(() {
@@ -34,7 +37,10 @@ class _DetalheAnuncioState extends State<DetalheAnuncio> {
   @override
   Widget build(BuildContext context) {
     //final Anuncio anuncio = ModalRoute.of(context).settings.arguments;
-    final int indiceLista = ModalRoute.of(context).settings.arguments;
+    //final parametros = ModalRoute.of(context).settings.arguments;
+    final parametros = ModalRoute.of(context).settings.arguments;
+    bloc = BlocProvider.getBloc<AnuncioBloc>();
+    bloc.detalharAnuncio(parametros);
     /*List<Widget> _widgets = <Widget>[
       DetalheBasico(anuncio: anuncio,),
       DetalheDados(anuncio: anuncio,),
@@ -94,7 +100,6 @@ class _DetalheAnuncioState extends State<DetalheAnuncio> {
       ),
       body: DetalheBar(
         index: _index,
-        indiceLista: indiceLista,
       ),
       /*body: TabBarView(
         children: _widgets,

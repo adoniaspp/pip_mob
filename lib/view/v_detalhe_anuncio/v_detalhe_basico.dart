@@ -2,14 +2,9 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:pip_mob/bloc/busca_anuncio_bloc.dart';
-import 'package:pip_mob/model/Anuncio.dart';
 import 'package:pip_mob/util/functions.dart';
-import 'package:pip_mob/model/busca_anuncio.dart';
 
 class DetalheBasico extends StatelessWidget {
-  final int index;
-
-  DetalheBasico({Key key, this.index}) : super(key: key);
 
   AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
 
@@ -18,11 +13,11 @@ class DetalheBasico extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<Object>(
-        stream: bloc.outBuscaAnuncio,
+        stream: bloc.outDetalheAnuncio,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            BuscaAnuncio listaAnuncios = snapshot.data;
-            Anuncio anuncio = listaAnuncios.anuncio[index];
+            dynamic listaAnuncios = snapshot.data;
+            dynamic anuncio = listaAnuncios.anuncio[0];
             anuncio.imagem.forEach((imagem) {
               imagens.add(GestureDetector(
                   onTap: () {

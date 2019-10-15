@@ -2,7 +2,7 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:pip_mob/bloc/busca_anuncio_bloc.dart';
 
-class DadosCasa extends StatelessWidget {
+class DadosSalaComercial extends StatelessWidget {
   
   AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
 
@@ -16,21 +16,6 @@ class DadosCasa extends StatelessWidget {
             dynamic anuncio = listaAnuncios.anuncio[0];
             return ListView(
               children: <Widget>[
-                ListTile(
-                  leading: Icon(
-                    Icons.hotel,
-                    color: Colors.brown,
-                    size: 35,
-                  ),
-                  title: Text(
-                    "Quartos",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  trailing: Text(
-                    anuncio.quarto,
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
                 ListTile(
                   leading: Icon(
                     Icons.hot_tub,
@@ -73,21 +58,6 @@ class DadosCasa extends StatelessWidget {
                   ),
                   trailing: Text(
                     anuncio.area,
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-                ListTile(
-                  leading: Icon(
-                    Icons.local_hotel,
-                    color: Colors.purple,
-                    size: 35,
-                  ),
-                  title: Text(
-                    "Suíte",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  trailing: Text(
-                    anuncio.suite,
                     style: TextStyle(fontSize: 20),
                   ),
                 ),

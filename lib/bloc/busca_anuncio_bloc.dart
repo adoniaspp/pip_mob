@@ -1,4 +1,5 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:pip_mob/model/anuncio_salacomercial.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:pip_mob/model/busca_anuncio.dart';
 import 'package:pip_mob/service/busca_anuncio.dart';
@@ -13,18 +14,26 @@ class AnuncioBloc extends BlocBase{
 
   Sink<BuscaAnuncio> get inBuscaAnuncio => _buscaAnuncioController.sink;
 
-  var _detalheAnuncioController = BehaviorSubject<BuscaAnuncio>();
+  var _detalheAnuncioController = BehaviorSubject<dynamic>();
 
-  Stream<BuscaAnuncio> get outDetalheAnuncio => _detalheAnuncioController.stream;
+  Stream<dynamic> get outDetalheAnuncio => _detalheAnuncioController.stream;
 
-  Sink<BuscaAnuncio> get inDetalheAnuncio => _detalheAnuncioController.sink;
+  Sink<dynamic> get inDetalheAnuncio => _detalheAnuncioController.sink;
 
   buscaAnuncio() async{
-      inBuscaAnuncio.add(await BuscaAnuncioService.buscaAnuncio());
+      final data = await BuscaAnuncioService.buscaAnuncio();
+      inBuscaAnuncio.add(BuscaAnuncio.fromJson(data));
   }
 
   detalharAnuncio(final parametros) async{
-      inDetalheAnuncio.add(await BuscaAnuncioService.detalheAnuncio());
+
+      final data = await BuscaAnuncioService.detalheAnuncio(parametros);
+      
+      switch(parametros['tipoImovel']){
+        case 'salacomercial':
+          inDetalheAnuncio.add(ListaSalaComercial.fromJson(data));
+        break;
+      }
   }
 
   @override

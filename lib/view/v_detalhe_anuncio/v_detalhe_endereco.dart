@@ -4,26 +4,21 @@ import 'dart:async';
 import 'package:pip_mob/util/functions.dart';
 import 'package:pip_mob/bloc/busca_anuncio_bloc.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
-import 'package:pip_mob/model/busca_anuncio.dart';
-import 'package:pip_mob/model/Anuncio.dart';
 
 
 class DetalheEndereco extends StatelessWidget {
-  final int index;
   AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
-  
-  DetalheEndereco({Key key, this.index}) : super(key: key);
 
   Completer<GoogleMapController> _controller = Completer();
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<Object>(
-        stream: bloc.outBuscaAnuncio,
+        stream: bloc.outDetalheAnuncio,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            BuscaAnuncio listaAnuncios = snapshot.data;
-            Anuncio anuncio = listaAnuncios.anuncio[index];
+            dynamic listaAnuncios = snapshot.data;
+            dynamic anuncio = listaAnuncios.anuncio[0];
             return ListView(
               children: <Widget>[
                 Container(

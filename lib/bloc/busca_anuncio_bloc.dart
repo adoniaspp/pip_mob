@@ -25,11 +25,10 @@ class AnuncioBloc extends BlocBase{
       inBuscaAnuncio.add(BuscaAnuncio.fromJson(data));
   }
 
-  detalharAnuncio(final parametros) async{
-
-      final data = await BuscaAnuncioService.detalheAnuncio(parametros);
+  detalharAnuncio(final tipoImovel, final idAnuncio) async{
+      final data = await BuscaAnuncioService.detalheAnuncio(tipoImovel, idAnuncio);
       
-      switch(parametros['tipoImovel']){
+      switch(tipoImovel){
         case 'salacomercial':
           inDetalheAnuncio.add(ListaSalaComercial.fromJson(data));
         break;

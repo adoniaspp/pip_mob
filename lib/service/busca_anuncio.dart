@@ -18,14 +18,14 @@ static Future<dynamic> buscaAnuncio() async{
   return jsonDecode(response.data);
 }
 
-static Future<dynamic> detalheAnuncio(final parametros) async{
+static Future<dynamic> detalheAnuncio(final tipoImovel, final idAnuncio) async{
     print("aqui");
-    var url = "http://192.168.1.107:80/index.php";
+    var url = "http://192.168.1.102:80/index.php";
     FormData formData = new FormData.from({
     'hdnEntidade' : 'Anuncio',
     'hdnAcao' : 'detalhar',
-    'hdnTipoImovel' : parametros['tipoImovel'],
-    'hdnCodAnuncio': parametros['idAnuncio'],
+    'hdnTipoImovel' : tipoImovel,
+    'hdnCodAnuncio': idAnuncio,
     'mobileDevice': 'true'
   });
     Dio dio = new Dio();

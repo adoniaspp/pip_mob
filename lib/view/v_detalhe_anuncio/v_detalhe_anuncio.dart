@@ -38,9 +38,6 @@ class _DetalheAnuncioState extends State<DetalheAnuncio> {
   Widget build(BuildContext context) {
     //final Anuncio anuncio = ModalRoute.of(context).settings.arguments;
     //final parametros = ModalRoute.of(context).settings.arguments;
-    final parametros = ModalRoute.of(context).settings.arguments;
-    bloc = BlocProvider.getBloc<AnuncioBloc>();
-    bloc.detalharAnuncio(parametros);
     /*List<Widget> _widgets = <Widget>[
       DetalheBasico(anuncio: anuncio,),
       DetalheDados(anuncio: anuncio,),

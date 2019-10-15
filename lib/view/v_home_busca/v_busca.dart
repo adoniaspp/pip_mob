@@ -65,11 +65,8 @@ class _VisaoBuscaState extends State<VisaoBusca> {
                         Anuncio anuncio = anuncios.anuncio[index];
                         return GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, '/detalheAnuncio',
-                                arguments: <String, String>{
-                                  'idAnuncio': anuncio.idanuncio,
-                                  'tipoImovel': anuncio.tipo
-                                });
+                            Navigator.pushNamed(context, '/detalheAnuncio');
+                            bloc.detalharAnuncio(anuncio.tipo, anuncio.idanuncio);
                           },
                           child: Card(
                               margin: EdgeInsets.only(bottom: 20),

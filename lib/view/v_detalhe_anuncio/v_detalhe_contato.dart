@@ -4,7 +4,7 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 
 class DetalheContato extends StatelessWidget {
 
-  AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
+  final AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
 
   @override
   Widget build(BuildContext context) {

@@ -18,9 +18,8 @@ static Future<dynamic> buscaAnuncio() async{
   return jsonDecode(response.data);
 }
 
-static Future<dynamic> detalheAnuncio(final tipoImovel, final idAnuncio) async{
-    print("aqui");
-    var url = "http://192.168.1.102:80/index.php";
+static Future<Object> detalheAnuncio(final tipoImovel, final idAnuncio) async{
+    var url = "http://192.168.1.104:80/index.php";
     FormData formData = new FormData.from({
     'hdnEntidade' : 'Anuncio',
     'hdnAcao' : 'detalhar',

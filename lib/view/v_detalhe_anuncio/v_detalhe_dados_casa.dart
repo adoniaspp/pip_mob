@@ -4,7 +4,7 @@ import 'package:pip_mob/bloc/busca_anuncio_bloc.dart';
 
 class DadosCasa extends StatelessWidget {
   
-  AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
+  final AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
 
   @override
   Widget build(BuildContext context) {

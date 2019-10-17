@@ -6,9 +6,9 @@ import 'package:pip_mob/util/functions.dart';
 
 class DetalheBasico extends StatelessWidget {
 
-  AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
+  final AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
 
-  List<Widget> imagens = new List<Widget>();
+  final List<Widget> imagens = new List<Widget>();
 
   @override
   Widget build(BuildContext context) {

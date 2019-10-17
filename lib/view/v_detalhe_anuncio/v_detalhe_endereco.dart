@@ -7,9 +7,9 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 
 
 class DetalheEndereco extends StatelessWidget {
-  AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
+  final AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
 
-  Completer<GoogleMapController> _controller = Completer();
+  final Completer<GoogleMapController> _controller = Completer();
 
   @override
   Widget build(BuildContext context) {

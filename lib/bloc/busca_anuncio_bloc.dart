@@ -14,11 +14,11 @@ class AnuncioBloc extends BlocBase{
 
   Sink<BuscaAnuncio> get inBuscaAnuncio => _buscaAnuncioController.sink;
 
-  var _detalheAnuncioController = BehaviorSubject<dynamic>();
+  var _detalheAnuncioController = BehaviorSubject<Object>();
 
-  Stream<dynamic> get outDetalheAnuncio => _detalheAnuncioController.stream;
+  Stream<Object> get outDetalheAnuncio => _detalheAnuncioController.stream;
 
-  Sink<dynamic> get inDetalheAnuncio => _detalheAnuncioController.sink;
+  Sink<Object> get inDetalheAnuncio => _detalheAnuncioController.sink;
 
   buscaAnuncio() async{
       final data = await BuscaAnuncioService.buscaAnuncio();

@@ -36,14 +36,6 @@ class _DetalheAnuncioState extends State<DetalheAnuncio> {
 
   @override
   Widget build(BuildContext context) {
-    //final Anuncio anuncio = ModalRoute.of(context).settings.arguments;
-    //final parametros = ModalRoute.of(context).settings.arguments;
-    /*List<Widget> _widgets = <Widget>[
-      DetalheBasico(anuncio: anuncio,),
-      DetalheDados(anuncio: anuncio,),
-      DetalheEndereco(anuncio: anuncio),
-      DetalheContato(anuncio: anuncio,),
-    ];*/
     return Scaffold(
       appBar: AppBar(
         //title: Text(anuncio.finalidade + " de " + anuncio.tipo),

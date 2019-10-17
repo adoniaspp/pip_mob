@@ -5,7 +5,7 @@ import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_dados_casa.dart';
 import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_dados_salacomercial.dart';
 
 class DetalheDados extends StatelessWidget {
-  AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
+  final AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
 
   @override
   Widget build(BuildContext context) {

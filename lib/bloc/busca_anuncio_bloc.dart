@@ -1,4 +1,5 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:pip_mob/model/anuncio_casa.dart';
 import 'package:pip_mob/model/anuncio_salacomercial.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:pip_mob/model/busca_anuncio.dart';
@@ -31,6 +32,9 @@ class AnuncioBloc extends BlocBase{
       switch(tipoImovel){
         case 'salacomercial':
           inDetalheAnuncio.add(ListaSalaComercial.fromJson(data));
+        break;
+        case 'casa':
+          inDetalheAnuncio.add(ListaCasa.fromJson(data));
         break;
       }
   }

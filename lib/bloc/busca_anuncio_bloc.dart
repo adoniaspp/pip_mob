@@ -1,6 +1,7 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:pip_mob/model/anuncio_casa.dart';
 import 'package:pip_mob/model/anuncio_salacomercial.dart';
+import 'package:pip_mob/model/anuncio_terreno.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:pip_mob/model/busca_anuncio.dart';
 import 'package:pip_mob/service/busca_anuncio.dart';
@@ -35,6 +36,9 @@ class AnuncioBloc extends BlocBase{
         break;
         case 'casa':
           inDetalheAnuncio.add(ListaCasa.fromJson(data));
+        break;
+        case 'terreno':
+          inDetalheAnuncio.add(ListaTerreno.fromJson(data));
         break;
       }
   }

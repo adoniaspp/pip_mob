@@ -40,6 +40,12 @@ class AnuncioBloc extends BlocBase{
         case 'terreno':
           inDetalheAnuncio.add(ListaTerreno.fromJson(data));
         break;
+        case 'apartamento':
+          inDetalheAnuncio.add(ListaTerreno.fromJson(data));
+        break;
+        case 'prediocomercial':
+          inDetalheAnuncio.add(ListaTerreno.fromJson(data));
+        break;
       }
   }
 

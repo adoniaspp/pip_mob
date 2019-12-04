@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pip_mob/bloc/busca_anuncio_bloc.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_dados_apartamento.dart';
 import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_dados_casa.dart';
 import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_dados_salacomercial.dart';
 
@@ -12,6 +13,7 @@ class DetalheDados extends StatelessWidget {
     final listDados = {
       'casa': DadosCasa(),
       'salacomercial': DadosSalaComercial(),
+      'apartmento' : DadosApartamento(),
     };
     return StreamBuilder<Object>(
         stream: bloc.outDetalheAnuncio,

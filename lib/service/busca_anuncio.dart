@@ -19,7 +19,7 @@ static Future<dynamic> buscaAnuncio() async{
 }
 
 static Future<Object> detalheAnuncio(final tipoImovel, final idAnuncio) async{
-    var url = "http://192.168.1.104:80/index.php";
+    var url = "https://www.piponline.com.br";
     FormData formData = new FormData.from({
     'hdnEntidade' : 'Anuncio',
     'hdnAcao' : 'detalhar',

@@ -74,9 +74,9 @@ class Casa {
   String cidade;
   String idestado;
   String estado;
-  Null complemento;
-  Null latitude;
-  Null longitude;
+  String complemento;
+  String latitude;
+  String longitude;
   String id;
   String nome;
   String tipousuario;

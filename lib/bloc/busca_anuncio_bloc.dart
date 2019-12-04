@@ -28,6 +28,7 @@ class AnuncioBloc extends BlocBase{
   }
 
   detalharAnuncio(final tipoImovel, final idAnuncio) async{
+      inDetalheAnuncio.add(null);
       final data = await BuscaAnuncioService.detalheAnuncio(tipoImovel, idAnuncio);
       
       switch(tipoImovel){

@@ -4,6 +4,7 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_dados_apartamento.dart';
 import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_dados_casa.dart';
 import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_dados_salacomercial.dart';
+import 'package:pip_mob/view/v_detalhe_anuncio/v_detalhe_terreno.dart';
 
 class DetalheDados extends StatelessWidget {
   final AnuncioBloc bloc = BlocProvider.getBloc<AnuncioBloc>();
@@ -14,6 +15,7 @@ class DetalheDados extends StatelessWidget {
       'casa': DadosCasa(),
       'salacomercial': DadosSalaComercial(),
       'apartmento' : DadosApartamento(),
+      'terreno': DadosTerreno(),
     };
     return StreamBuilder<Object>(
         stream: bloc.outDetalheAnuncio,
